@@ -1,7 +1,8 @@
 
 """
 Theme Extractor for Bank Reviews Analysis Project
-Uses TF-IDF for keyword extraction and clusters keywords into themes.
+Uses TF-IDF for keyword extraction and assigns predefined themes.
+Includes robust error handling and safe file saving.
 """
 
 import os
@@ -33,25 +34,29 @@ class ThemeExtractor:
         vectorizer = TfidfVectorizer(stop_words='english', max_features=max_features)
         tfidf_matrix = vectorizer.fit_transform(df['review_text'].astype(str))
         keywords = vectorizer.get_feature_names_out()
-        return keywords
+        print(f"Extracted {len(keywords)} keywords")
+        return tfidf_matrix, keywords
 
     def assign_themes(self, df):
         print("Assigning themes to reviews...")
         assigned_themes = []
         for text in df['review_text'].astype(str):
             text_lower = text.lower()
-            matched = []
-            for theme, keywords in self.themes.items():
-                if any(word in text_lower for word in keywords):
-                    matched.append(theme)
+            matched = [theme for theme, keywords in self.themes.items() if any(word in text_lower for word in keywords)]
             assigned_themes.append(", ".join(matched) if matched else "Other")
         df['themes'] = assigned_themes
+        print("Themes assigned successfully")
         return df
 
     def save_results(self, df):
-        os.makedirs(os.path.dirname(self.final_path), exist_ok=True)
-        df.to_csv(self.final_path, index=False)
-        print(f"✅ Final results with themes saved to {self.final_path}")
+        try:
+            os.makedirs(os.path.dirname(self.final_path), exist_ok=True)
+            df.to_csv(self.final_path, index=False)
+            print(f"Final results with themes saved to {self.final_path}")
+        except PermissionError:
+            fallback_path = os.path.join(os.getcwd(), 'reviews_final_fallback.csv')
+            df.to_csv(fallback_path, index=False)
+            print(f"Permission denied at {self.final_path}. Saved to fallback path: {fallback_path}")
 
     def run(self):
         df = self.load_data()
