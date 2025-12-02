@@ -1,8 +1,6 @@
 
 """
 Configuration file for Bank Reviews Analysis Project
-(adapted for new project layout: project root contains `src/` and `notebooks/`,
-this file lives in `src/` so paths are resolved relative to the project root)
 """
 import os
 from pathlib import Path
