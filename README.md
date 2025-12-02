@@ -5,7 +5,7 @@
 This project analyzes customer satisfaction with mobile banking apps by collecting and processing user reviews from the Google Play Store for Ethiopian banks:
 
 - **Commercial Bank of Ethiopia (CBE)**
-- **Awash Bank**
+- **Bank of Abyssinia**
 - **Amhara Bank**
 
 ## Business Objective
