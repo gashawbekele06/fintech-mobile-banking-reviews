@@ -15,14 +15,14 @@ load_dotenv(dotenv_path=BASE_DIR / ".env")
 # Google Play Store App IDs (can be overridden via .env)
 APP_IDS = {
     'CBE': os.getenv('CBE_APP_ID', 'com.combanketh.mobilebanking'),
-    'Awash': os.getenv('AWASHPAY_APP_ID', 'com.sc.awashpay'),
+    'BOA': os.getenv('BOA_APP_ID', 'com.boa.boaMobileBanking'),
     'Amharabank': os.getenv('AMHARABANK_APP_ID', 'com.amharabank.Aba_mobile_banking')
 }
 
 # Bank Names Mapping
 BANK_NAMES = {
     'CBE': 'Commercial Bank of Ethiopia',
-    'Awash': 'Awash Bank',
+    'BOA': 'Bank of Abyssinia',
     'Amharabank': 'Amharabank'
 }
 
