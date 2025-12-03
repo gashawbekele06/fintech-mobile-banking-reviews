@@ -16,14 +16,14 @@ load_dotenv(dotenv_path=BASE_DIR / ".env")
 APP_IDS = {
     'CBE': os.getenv('CBE_APP_ID', 'com.combanketh.mobilebanking'),
     'BOA': os.getenv('BOA_APP_ID', 'com.boa.boaMobileBanking'),
-    'Amharabank': os.getenv('AMHARABANK_APP_ID', 'com.amharabank.Aba_mobile_banking')
+    'Dashenbank': os.getenv('DASHENBANK_APP_ID', 'com.dashen.dashensuperapp')
 }
 
 # Bank Names Mapping
 BANK_NAMES = {
     'CBE': 'Commercial Bank of Ethiopia',
     'BOA': 'Bank of Abyssinia',
-    'Amharabank': 'Amharabank'
+    'Dashenbank': 'Dashen Bank'
 }
 
 # Scraping Configuration

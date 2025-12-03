@@ -6,7 +6,7 @@ This project analyzes customer satisfaction with mobile banking apps by collecti
 
 - **Commercial Bank of Ethiopia (CBE)**
 - **Bank of Abyssinia**
-- **Amhara Bank**
+- **Dashen Bank**
 
 ## Business Objective
 
